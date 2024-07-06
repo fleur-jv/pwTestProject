@@ -1,8 +1,7 @@
-import re
 from playwright.sync_api import Playwright, sync_playwright, expect
 
 
-def run(playwright: Playwright) -> None:
+def test_add_todo(playwright: Playwright) -> None:
     browser = playwright.chromium.launch(headless=False)
     context = browser.new_context()
     page = context.new_page()
@@ -14,7 +13,3 @@ def run(playwright: Playwright) -> None:
     # ---------------------
     context.close()
     browser.close()
-
-
-with sync_playwright() as playwright:
-    run(playwright)
